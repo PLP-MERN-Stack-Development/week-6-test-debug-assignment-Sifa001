@@ -1,88 +1,112 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19925239&assignment_repo_type=AssignmentRepo)
-# Testing and Debugging MERN Applications
+# MERN Bug Tracker
 
-This assignment focuses on implementing comprehensive testing strategies for a MERN stack application, including unit testing, integration testing, and end-to-end testing, along with debugging techniques.
+A full-stack bug tracker application built with the MERN stack (MongoDB, Express, React, Node.js). Users can report, update, and track bugs, with robust testing and debugging practices applied throughout.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up testing environments for both client and server
-2. Write unit tests for React components and server functions
-3. Implement integration tests for API endpoints
-4. Create end-to-end tests for critical user flows
-5. Apply debugging techniques for common MERN stack issues
+## Features
+- Report new bugs
+- View a list of all reported bugs
+- Update bug statuses (open, in-progress, resolved)
+- Delete bugs
+- Error handling on both client and server
+- Comprehensive unit and integration tests
+
+---
 
 ## Project Structure
-
 ```
-mern-testing/
-├── client/                 # React front-end
-│   ├── src/                # React source code
-│   │   ├── components/     # React components
-│   │   ├── tests/          # Client-side tests
-│   │   │   ├── unit/       # Unit tests
-│   │   │   └── integration/ # Integration tests
-│   │   └── App.jsx         # Main application component
-│   └── cypress/            # End-to-end tests
-├── server/                 # Express.js back-end
-│   ├── src/                # Server source code
-│   │   ├── controllers/    # Route controllers
-│   │   ├── models/         # Mongoose models
-│   │   ├── routes/         # API routes
-│   │   └── middleware/     # Custom middleware
-│   └── tests/              # Server-side tests
-│       ├── unit/           # Unit tests
-│       └── integration/    # Integration tests
-├── jest.config.js          # Jest configuration
-└── package.json            # Project dependencies
+root/
+  server/           # Backend (Express, MongoDB)
+  client/           # Frontend (React)
 ```
 
-## Getting Started
+---
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week6-Assignment.md` file
-4. Explore the starter code and existing tests
-5. Complete the tasks outlined in the assignment
+## Installation & Running
 
-## Files Included
+### 1. Clone the Repository
+```bash
+git clone repo
+cd repo-folder
+```
 
-- `Week6-Assignment.md`: Detailed assignment instructions
-- Starter code for a MERN application with basic test setup:
-  - Sample React components with test files
-  - Express routes with test files
-  - Jest and testing library configurations
-  - Example tests for reference
+### 2. Backend Setup
+```bash
+cd server
+pnpm install
+# Create a .env file with your MongoDB URI (see .env.example)
+pnpm run dev
+# or
+pnpm start
+```
+- The backend will run on [http://localhost:5000](http://localhost:5000)
 
-## Requirements
+### 3. Frontend Setup
+```bash
+cd ../client
+pnpm install
+pnpm start
+```
+- The frontend will run on [http://localhost:3000](http://localhost:3000)
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Basic understanding of testing concepts
+### 4. Proxy Setup
+- The `client/package.json` includes a proxy to the backend for API calls:
+  ```json
+  "proxy": "http://localhost:5000"
+  ```
 
-## Testing Tools
+---
 
-- Jest: JavaScript testing framework
-- React Testing Library: Testing utilities for React
-- Supertest: HTTP assertions for API testing
-- Cypress/Playwright: End-to-end testing framework
-- MongoDB Memory Server: In-memory MongoDB for testing
+## Running Tests
 
-## Submission
+### Backend (server)
+```bash
+cd server
+pnpm test
+```
+- Runs unit tests (helpers) and integration tests (API routes, with mocked DB).
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### Frontend (client)
+```bash
+cd client
+pnpm test
+```
+- Runs unit and integration tests for React components using React Testing Library and Jest.
 
-1. Complete all required tests (unit, integration, and end-to-end)
-2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
-4. Include screenshots of your test coverage reports
-5. Demonstrate debugging techniques in your code
+---
 
-## Resources
+## Debugging Techniques Used
+- **Console logs**: Used in both backend and frontend for tracking values and errors.
+- **Node.js Inspector**: Run the backend with `pnpm run dev -- --inspect` and debug using Chrome DevTools.
+- **Chrome DevTools**: Inspect network requests, React component state, and errors in the browser.
+- **Error Boundaries**: React error boundaries catch and display UI errors gracefully.
+- **Express Error Middleware**: Centralized error handling in the backend for consistent error responses.
+- **Intentional Bugs**: Introduced and debugged using the above tools to demonstrate best practices.
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
-- [Supertest Documentation](https://github.com/visionmedia/supertest)
-- [Cypress Documentation](https://docs.cypress.io/)
-- [MongoDB Testing Best Practices](https://www.mongodb.com/blog/post/mongodb-testing-best-practices) 
+---
+
+## Testing Approach & Coverage
+
+### Backend
+- **Unit Tests**: For helper functions (e.g., validation logic).
+- **Integration Tests**: For API endpoints (create, update, delete bugs), using Supertest and Jest, with database calls mocked.
+- **Coverage**: Ensures all core logic and error cases are tested.
+
+### Frontend
+- **Unit Tests**: For React components (form validation, button clicks, rendering states).
+- **Integration Tests**: For API calls and UI updates (e.g., submitting a bug, updating status, deleting).
+- **Error Handling**: Tests for error boundaries and error messages.
+- **Coverage**: Focuses on user flows and edge cases.
+
+---
+
+## Additional Notes
+- The app uses modern React (hooks, functional components) and best practices for maintainability.
+- Styling is handled via CSS for a clean, modern look.
+- Easily extensible for authentication, filtering, or more advanced features.
+
+---
+
+## License
+MIT 
