@@ -1,0 +1,1 @@
+exports.isValidStatus = (status) => ['open', 'in-progress', 'resolved'].includes(status); 

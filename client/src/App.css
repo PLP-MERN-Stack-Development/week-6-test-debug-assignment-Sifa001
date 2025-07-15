@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #f7f9fa 0%, #e0c3fc 100%);
+  min-height: 100vh;
+}
+
+.App {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(152, 80, 175, 0.10);
+  padding: 32px 24px 24px 24px;
+}
+
+h1 {
+  text-align: center;
+  color: #9850af;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  color: #7a3a97;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+form {
+  margin-bottom: 32px;
+}
+
+form > div {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+input[type="text"], textarea, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+button[type="submit"], button {
+  background: #9850af;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover, button:hover {
+  background: #6d2c7a;
+}
+
+button[disabled] {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.BugItem {
+  background: #f4f6f8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(152, 80, 175, 0.06);
+}
+
+.BugItem h3 {
+  margin: 0 0 8px 0;
+  color: #9850af;
+  font-weight: 600;
+}
+
+.BugItem p {
+  margin: 4px 0;
+}
+
+.BugItem select {
+  width: auto;
+  margin-left: 8px;
+}
+
+.BugItem button {
+  margin-left: 0;
+  margin-top: 8px;
+}
+
+[style*="color: red"] {
+  margin-top: 8px;
+  font-size: 0.98rem;
+}
